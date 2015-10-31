@@ -31,6 +31,9 @@ It returns a string that contains the Mime-Type or the CodeMirror mode. You can 
 `ExtToMime.reload(true)` - this method reloads the map source from brackets repository and set's the state internally. This function has by default the parameter set to true, so you don't need to provide it. If the param is set to false, some MimeTypes will contain "-brakets-" in it. Eg: "text/x-brackets-html" or "text/x-brackets-css". By default the module removes this to ensure CodeMirror will work as expected.
 
 
+---
+
+
 #### It's yours with love!
 
 Copyright (c) 2015 Lamba Andrei-Alexandru

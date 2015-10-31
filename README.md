@@ -1,0 +1,31 @@
+## Ext-To-MimeType-Mode
+ExtToMime is a JavaScript module that provides you a easy way to map a file extension to a MimeType/CodeMirror mode. You can provide the module a file extension without a dot and you will get back the CodeMirror mode. 
+
+### Requirements
+The module requires the following in order to work:
+- jQuery ( I used _1.11.3_ )
+- Underscore ( I used _1.8.3_ )
+
+
+### Data sources
+The MimeTypes/Modes were taken from *Brackets* repository since CodeMirror uses the same types/modes in order to change it's syntax highlighting. The module has already a _map_ of those build inside, but it has a function called `reload` that allows you to reload this map from brackets repository and update the internal state for further use.
+
+### Getting started
+
+1. Make sure you have the right dependencies
+2. Download the file called ext_to_mime.js and include it in your application
+3. The module will be exported globally and you can use it (See below how)
+
+## How to use
+
+#### ExtToMime
+The module name is ExtToMime and you can call it's public methods in order to get the data processed by it. 
+
+#### ExtToMime.getByExtension(ext)
+`ExtToMime.getByExtension(ext)` expects `ext` to be a string that represents the extension without the `.` character. Eg: rb, html, cpp, c, java, css, yaml, sql, etc
+
+It returns a string that contains the Mime-Type or the CodeMirror mode. You can use this to apply it to your CodeMirror instance as follows: `codeMirrorInstance.setOption("mode", ExtToMime.getByExtension("rb"));`
+
+
+#### ExtToMime.reload(true)
+`ExtToMime.reload(true)` - this method reloads the map source from brackets repository and set's the state internally. This function has by default the parameter set to true, so you don't need to provide it. If the param is set to false, some MimeTypes will contain "-brakets-" in it. Eg: "text/x-brackets-html" or "text/x-brackets-css". By default the module removes this to ensure CodeMirror will work as expected.
